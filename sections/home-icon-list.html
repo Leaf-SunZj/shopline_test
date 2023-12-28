@@ -1,0 +1,49 @@
+{{#comment}} <link rel="stylesheet" href="{{asset_url 'section-home-icon-list.css'}}" /> {{/comment}}
+{{ stylesheet_tag (asset_url 'section-home-icon-list.css') }}
+<div class="icon_list_content">
+  <div class="icon_list">
+    {{#each section.blocks}}
+    <div class="icon_item">
+      {{{this.settings.image}}}
+      <div class="desc">{{this.settings.desc}}</div>
+    </div>
+    {{/each}}
+  </div>
+</div>
+{{#schema}}
+{
+  "name": "Icon List",
+  "class": "icon_list",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Slideshow"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Slide",
+      "type": "slide",
+      "icon": "image",
+      "settings": [
+        {
+          "type": "html",
+          "id": "image",
+          "label": "Icon svg"
+        },
+        {
+          "type": "text",
+          "id": "desc",
+          "label": "Icon Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Icon list"
+    }
+  ]
+}
+{{/schema}}

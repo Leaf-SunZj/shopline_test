@@ -1,0 +1,19 @@
+.icon_list_content {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px 15px;
+}
+.icon_list_content .icon_list{
+    display: flex;
+    justify-content: space-between;
+}
+
+.icon_list .icon_item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.icon_list .icon_item .desc{
+    font-size: .94vw;
+    margin-top: 1.875vw;
+}

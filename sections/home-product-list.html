@@ -1,0 +1,80 @@
+<div class="home_product_content">
+  <div class="product_list">
+    {{#each section.blocks as |block|}}
+    {{assign 'product' block.settings.product}}
+      <div class="product_item">
+        <a href="{{ product.url }}" class="img_box">
+          <img width="330" height="330" src="{{product.featured_image}}" alt="" />
+        </a>
+        <div class="title">{{product.title}}</div>
+        <div class="price">{{ money product.price code='USD'}}</div>
+      </div>
+    {{/each}}
+  </div>
+</div>
+<style>
+    .home_product_content {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 20px 15px;
+    }
+
+    .home_product_content .product_list {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .home_product_content .product_list>div {
+        width: 48%;
+        text-align: center;
+    }
+
+    .product_list .product_item .img_box {
+      display: block;
+        width: 71%;
+        margin: 0 auto;
+    }
+
+    .product_list .product_item .img_box img {
+        width: 100%;
+        height: auto;
+    }
+     
+    .product_list .product_item .title {
+        font-size: 16px;
+        text-align: center;
+    }
+</style>
+{{#schema}}
+{
+  "name": "Product List",
+  "class": "product_list",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "product",
+      "type": "product",
+      "icon": "product",
+      "max_blocks": 2,
+      "settings": [
+        {
+          "type": "product_picker",
+          "id": "product",
+          "label": "Product"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Icon list"
+    }
+  ]
+}
+{{/schema}}
